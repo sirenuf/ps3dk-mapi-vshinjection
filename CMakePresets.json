@@ -1,0 +1,28 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "ps3",
+      "displayName": "PS3 PPU (PS3DK)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "toolchainFile": "$env{PS3_TOOLCHAIN_ROOT}/cmake/ps3-ppu-toolchain.cmake",
+      "environment": {
+        "PS3_TOOLCHAIN_ROOT": "$penv{PS3_TOOLCHAIN_ROOT}",
+        "PS3DEV": "$penv{PS3DEV}",
+        "PS3DK": "$penv{PS3DK}",
+        "PATH": "$env{PS3DEV}/bin:$env{PS3DEV}/ppu/bin:$penv{PATH}"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "ps3",
+      "configurePreset": "ps3"
+    }
+  ]
+}
