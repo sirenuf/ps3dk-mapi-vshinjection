@@ -19,3 +19,6 @@ Diagnostics:
   # a GCC way of forcing 32-bit pointers. Clang rejects it on pointers; with
   # -m32 pointers are 32-bit anyway, so ignoring it changes nothing.
   Suppress: [mode_not_primitive]
+
+Documentation:
+  CommentFormat: Doxygen
