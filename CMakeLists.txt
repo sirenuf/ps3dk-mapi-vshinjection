@@ -15,7 +15,11 @@ set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES
 # ps3_add_prx below swaps in the PRX linker script/crt and turns the linked
 # ELF into a .prx afterwards.
 add_executable(hello_vsh
-    export.cpp)
+    Source/main.cpp
+    Source/Core/Core.cpp
+    Source/Core/PS3DK/PS3DK.cpp
+    Source/Core/Cobra/Cobra.cpp
+)
 
 # Post-build: ELF -> hello_vsh.prx (prx-gen build + check), then SIGN produces
 #   hello_vsh.sprx       real-signed (make_sprx)
