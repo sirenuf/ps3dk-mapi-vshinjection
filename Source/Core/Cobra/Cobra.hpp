@@ -36,11 +36,11 @@ namespace Core::Cobra
      * `cmd = 1` to Lv2's `SYSCALL_PRX_STOP_MODULE` (number 482) syscall, aka `_sys_prx_stop_module()`.
      *
      * Usermode `liblv2` libraries like `sys_prx_stop_module()` does what Cobra should've.
-     *  1. Send a `SYSCALL_PRX_STOP_MODULE` with `cmd = 1` (report) to get the address of `module_stop`.
+     *  1. Send a `SYSCALL_PRX_STOP_MODULE` with `cmd = 1` (query) to get the address of `module_stop`.
      *   -> Lv2 sets PRX state to `PRX_STATE_STOPPING`.
      *
      *  2. Run `module_stop` and store its return value.
-     *  3. Send a `SYSCALL_PRX_STOP_MODULE` with `cmd = 2` (query) and `res` set to the previous return value.
+     *  3. Send a `SYSCALL_PRX_STOP_MODULE` with `cmd = 2` (report) and `res` set to the previous return value.
      *   -> Lv2 sets `PRX_STATE_STOPPED`
      * 
      * Cobra only does step 1 and 2 and returns back to the MAPI function.
